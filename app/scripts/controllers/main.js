@@ -7,11 +7,37 @@
  * # MainCtrl
  * Controller of the anglautaApp
  */
-angular.module('anglautaApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+
+var myFirebaseRef = new Firebase("https://glaring-inferno-6464.firebaseio.com/");
+
+var msgRef = myFirebaseRef.child("msgs");
+
+msgRef.set({
+    msg1: {
+        user: "kaka",
+        subject: "bghuhvosv",
+        body: "hvoava"
+    }
+});
+
+msgRef.on('value', function (snapshot) {
+    console.log(snapshot.val());
+}, function (errorObject) {
+    console.log('The read failed: ' + errorObject.code);
+});
+
+var app = angular.module('anglautaApp');
+
+app.controller('MainCtrl', function ($scope, $http) {
+    $http.get(myFirebaseRef).success( function(data, status, headers, config) {
+        console.log(data);
+        $scope.entries = data;
+    });
+
+    $scope.createMsg = function() {
+        myFirebaseRef.set({
+            user: ""
+        });
+    }
+});
+

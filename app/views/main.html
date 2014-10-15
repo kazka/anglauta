@@ -1,23 +1,32 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<form role="form"><!--ng-show="formVisible"-->
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="msg.user" placeholder="nimi"></input>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="msg.subject" placeholder="aihe"></input>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="file" ng-model="msg.img" placeholder="kuva" accept="image/x-png, image/gif, image/jpeg, image/jpg"></input>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" rows="3" ng-model="msg.body" placeholder="viesti"></textarea>
+    </div>
+    <button class="btn btn-primary" ng-click="createMsg()">Lähetä</button>
+    <button class="btn btn-default" ng-click="formVisible=!formVisible">Peruuta</button>
+</form>
+
+
+<!-- for each viesti -->
+<div class="row viestirivi" ng-repeat="msg in entries">
+    <div class="col-md-3">
+        <img ng-src="{{msg.img}}" />
+    </div>
+    <div class="col-md-9">
+        <h3>{{msg.subject}}</h3>
+        <h4>{{msg.user}}</h4>
+        <p>{{msg.body}}</p>
+    </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>

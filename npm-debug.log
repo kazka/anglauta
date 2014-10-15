@@ -1,0 +1,61 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/bin/npm', 'install', '-g', 'yo' ]
+info using npm@1.1.4
+info using node@v0.6.12
+verbose config file /home/kaisa/.npmrc
+verbose config file /usr/etc/npmrc
+verbose config file /usr/share/npm/npmrc
+verbose cache add [ 'yo', null ]
+silly cache add: name, spec, args [ undefined, 'yo', [ 'yo', null ] ]
+verbose parsed url { pathname: 'yo', path: 'yo', href: 'yo' }
+verbose addNamed [ 'yo', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'yo', '', false ]
+verbose raw, before any munging yo
+verbose url resolving [ 'http://registry.npmjs.org/', './yo' ]
+verbose url resolved http://registry.npmjs.org/yo
+http GET http://registry.npmjs.org/yo
+http 200 http://registry.npmjs.org/yo
+silly get cb [ 200,
+silly get cb   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+silly get cb     etag: '"6BQ6J5PA6GTIG247HODG327O1"',
+silly get cb     'content-type': 'application/json',
+silly get cb     'cache-control': 'max-age=60',
+silly get cb     'content-length': '46825',
+silly get cb     'accept-ranges': 'bytes',
+silly get cb     date: 'Mon, 13 Oct 2014 15:19:51 GMT',
+silly get cb     via: '1.1 varnish',
+silly get cb     age: '0',
+silly get cb     connection: 'keep-alive',
+silly get cb     'x-served-by': 'cache-fra1240-FRA',
+silly get cb     'x-cache': 'HIT',
+silly get cb     'x-cache-hits': '1',
+silly get cb     'x-timer': 'S1413213591.084580,VS0,VE443',
+silly get cb     vary: 'Accept' } ]
+verbose mkdir (expected) error ENOENT, no such file or directory '/home/kaisa/.npm/yo'
+verbose mkdir done: /home/kaisa/.npm/yo 755
+silly name, range, hasData 2 [ 'yo', '', true ]
+silly versions [ 'yo', [] ]
+ERR! Error: No compatible version found: yo
+ERR! No valid targets found.
+ERR! Perhaps not compatible with your version of node?
+ERR!     at installTargetsError (/usr/share/npm/lib/cache.js:488:10)
+ERR!     at next_ (/usr/share/npm/lib/cache.js:438:17)
+ERR!     at next (/usr/share/npm/lib/cache.js:415:44)
+ERR!     at /usr/share/npm/lib/cache.js:408:5
+ERR!     at saved (/usr/share/npm/lib/utils/npm-registry-client/get.js:147:7)
+ERR!     at Object.oncomplete (/usr/lib/nodejs/graceful-fs.js:230:7)
+ERR! You may report this log at:
+ERR!     <http://bugs.debian.org/npm>
+ERR! or use
+ERR!     reportbug --attach /home/kaisa/anglauta/npm-debug.log npm
+ERR! 
+ERR! System Linux 3.2.0-60-generic
+ERR! command "node" "/usr/bin/npm" "install" "-g" "yo"
+ERR! cwd /home/kaisa/anglauta
+ERR! node -v v0.6.12
+ERR! npm -v 1.1.4
+ERR! message No compatible version found: yo
+ERR! message No valid targets found.
+ERR! message Perhaps not compatible with your version of node?
+verbose exit [ 1, true ]
