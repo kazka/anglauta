@@ -81,7 +81,29 @@ body {
 
 /*--- OMAT ---*/
 
-.viestirivi {
+.ketjurivi {
     border:1px solid #000;
-    background:#dff0d8;
+    background:#afd9ee;
+    padding:10px 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.viestirivi {
+    border:1px dashed #000;
+    margin-right:10px;
+    margin-bottom:10px;
+    background:#d9edf7;
+    padding:10px;
+}
+.lomake {
+    margin-bottom:20px;
+}
+.user {
+    color:#285e8e;
+    margin-top:0;
+}
+.pvm {
+    margin-bottom:0;
+    color:#999;
+    float:right;
 }

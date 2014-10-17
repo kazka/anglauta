@@ -1,2 +1,11 @@
 13.10. MA 6h
-- SÄÄTÖÄ, projektin pystyttäminen lokaalisti (ei toimi!) ja serverille
+- SÄÄTÖÄ, projektin pystyttäminen lokaalisti (ei toiminut!) ja serverille
+
+15.10. KE 3h
+- Backendin virittäminen toimintaan projektin kanssa, angular-juttujen aloitus, layoutin pohjan rakentaminen
+
+16.10. TO 2h
+- Layoutin säätöä ja mietintää miksi mikään ei oikein toimi.....
+
+17.10. PE 3h
+- Säätöä ja mietintää miksi lomake ei lähetä tietoja, ulkoasun säätöä

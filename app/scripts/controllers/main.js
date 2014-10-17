@@ -8,36 +8,29 @@
  * Controller of the anglautaApp
  */
 
-var myFirebaseRef = new Firebase("https://glaring-inferno-6464.firebaseio.com/");
-
-var msgRef = myFirebaseRef.child("msgs");
-
-msgRef.set({
-    msg1: {
-        user: "kaka",
-        subject: "bghuhvosv",
-        body: "hvoava"
-    }
-});
-
-msgRef.on('value', function (snapshot) {
-    console.log(snapshot.val());
-}, function (errorObject) {
-    console.log('The read failed: ' + errorObject.code);
-});
-
-var app = angular.module('anglautaApp');
+var app = angular.module('anglautaApp')
 
 app.controller('MainCtrl', function ($scope, $http) {
-    $http.get(myFirebaseRef).success( function(data, status, headers, config) {
-        console.log(data);
-        $scope.entries = data;
+    $scope.ketju = {};
+    $scope.msg = {};
+
+    $http.get('http://anglauta.herokuapp.com/ketjus.json').success( function(data, status, headers, config) {
+        console.log(data)
+        $scope.ketjus = data;
     });
 
-    $scope.createMsg = function() {
-        myFirebaseRef.set({
-            user: ""
+    $scope.createKetju = function() {
+        $http.post('http://anglauta.herokuapp.com/ketjus.json', $scope.ketju).success( function(data, status, headers, config) {
+            $scope.ketjus.push(data)
         });
+        $scope.ketju = {}
+        $scope.createMsg();
+    };
+
+    $scope.createMsg = function() {
+        $http.post('http://anglauta.herokuapp.com/messages.json', $scope.msg).success( function(data, status, headers, config) {
+            $scope.messages.push(data)
+        });
+        $scope.msg = {}
     }
 });
-
