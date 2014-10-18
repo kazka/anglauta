@@ -20,7 +20,7 @@
 
 
 <!-- for each viesti -->
-<div ng-repeat="ketju in ketjus" class="ketjurivi">
+<div ng-repeat="ketju in ketjus | orderBy:'updated_at':true" class="ketjurivi">
 
     <div class="row">
         <h3 class="aihe">{{ketju.subject}}</h3>
@@ -42,7 +42,7 @@
             <div ng-hide="replyformVisible">
                 <button class="btn btn-default" ng-click="replyformVisible=!replyformVisible" style="margin-bottom:20px;">Vastaa</button>
             </div>
-            <form class="lomake" role="form" ng-show="replyformVisible" ng-init="msg.ketju_id = $parent.ketju.id">
+            <form class="lomake" role="form" ng-show="replyformVisible" ng-submit="createMsg(ketju.id)">
                 <div class="form-group">
                     <input class="form-control" type="text" ng-model="msg.user" placeholder="nimi"></input>
                 </div>
@@ -52,11 +52,8 @@
                 <div class="form-group">
                     <textarea class="form-control" rows="3" ng-model="msg.body" placeholder="viesti"></textarea>
                 </div>
-                <!--<input type="text" ng-model="msg.ketju_id" />-->
 
-                ##{{ketju.id}}##
-
-                <button class="btn btn-primary" ng-click="createMsg(ketju.id)">Lähetä</button>
+                <button class="btn btn-primary">Lähetä</button>
                 <button class="btn btn-default" ng-click="replyformVisible=!replyformVisible">Peruuta</button>
             </form>
         </div>
