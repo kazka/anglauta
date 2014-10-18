@@ -9,3 +9,6 @@
 
 17.10. PE 3h
 - Säätöä ja mietintää miksi lomake ei lähetä tietoja, ulkoasun säätöä
+
+18.10. LA 2h
+- Vastausviestien lähetys toimii :D!

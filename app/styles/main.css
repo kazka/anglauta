@@ -2,6 +2,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background:url(../images/tausta.jpeg) fixed;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -14,7 +15,7 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+  text-align:center;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -81,9 +82,9 @@ body {
 
 /*--- OMAT ---*/
 
-.ketjurivi {
+.ketjurivi, .uusiviesti {
     border:1px solid #000;
-    background:#afd9ee;
+    background:#ffc9d0;
     padding:10px 30px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -92,18 +93,29 @@ body {
     border:1px dashed #000;
     margin-right:10px;
     margin-bottom:10px;
-    background:#d9edf7;
+    background:rgba(255, 255, 255, 0.7);
     padding:10px;
 }
 .lomake {
     margin-bottom:20px;
 }
 .user {
-    color:#285e8e;
+    color:#c7254e;
     margin-top:0;
 }
 .pvm {
     margin-bottom:0;
     color:#999;
     float:right;
+}
+.otsikko {
+    text-shadow: -1px -1px 0 #fff,
+    -2px -2px 1px #fff;
+    font-weight:bold;
+    color:#000;
+    font-family: 'Rock Salt', cursive;
+    font-size:40px;
+}
+.aihe {
+
 }

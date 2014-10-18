@@ -1,6 +1,7 @@
-<div ng-hide="formVisible" style="margin-bottom:20px;"><button class="btn btn-default" ng-click="formVisible=!formVisible">Luo uusi</button></div>
+<div ng-hide="formVisible"><button class="btn btn-default" ng-click="formVisible=!formVisible">Luo uusi</button></div>
 
-<form class="lomake" role="form" ng-show="formVisible" ng-submit="createKetju(ketju)">
+<form class="lomake uusiviesti" role="form" ng-show="formVisible" ng-submit="createKetju(ketju)">
+    <br/>
     <div class="form-group">
         <input class="form-control" type="text" ng-model="msg.user" placeholder="nimi"></input>
     </div>
@@ -14,22 +15,21 @@
         <textarea class="form-control" rows="3" ng-model="msg.body" placeholder="viesti"></textarea>
     </div>
     <button class="btn btn-primary">Lähetä</button>
-</form>
-        {{ketju}}
-        {{msg}}
     <button class="btn btn-default" ng-click="formVisible=!formVisible">Peruuta</button>
+</form>
+
 
 <!-- for each viesti -->
 <div ng-repeat="ketju in ketjus" class="ketjurivi">
 
     <div class="row">
-        <h3>{{ketju.subject}}</h3>
+        <h3 class="aihe">{{ketju.subject}}</h3>
         <div class="col-md-12 viestirivi" ng-repeat="msg in ketju.messages">
             <div class="col-md-3">
                 <img ng-src="{{msg.img}}" style="width:100%" />
             </div>
             <div class="col-md-9">
-                <p class="pvm">{{msg.date | date:'dd.MM.yyyy HH:mm'}}</p>
+                <p class="pvm">{{msg.created_at | date:'dd.MM.yyyy HH:mm'}}</p>
                 <h4 class="user">{{msg.user}}</h4>
                 <p>{{msg.body}}</p>
             </div>
@@ -39,8 +39,10 @@
     <div class="row">
         <div class="col-md-12">
             <hr/>
-            <h4>Vastaa tähän ketjuun:</h4>
-            <form class="lomake" role="form" ng-show="replyformVisible">
+            <div ng-hide="replyformVisible">
+                <button class="btn btn-default" ng-click="replyformVisible=!replyformVisible" style="margin-bottom:20px;">Vastaa</button>
+            </div>
+            <form class="lomake" role="form" ng-show="replyformVisible" ng-init="msg.ketju_id = $parent.ketju.id">
                 <div class="form-group">
                     <input class="form-control" type="text" ng-model="msg.user" placeholder="nimi"></input>
                 </div>
@@ -50,7 +52,12 @@
                 <div class="form-group">
                     <textarea class="form-control" rows="3" ng-model="msg.body" placeholder="viesti"></textarea>
                 </div>
-                <button class="btn btn-primary" ng-click="createMsg()">Lähetä</button>
+                <!--<input type="text" ng-model="msg.ketju_id" />-->
+
+                ##{{ketju.id}}##
+
+                <button class="btn btn-primary" ng-click="createMsg(ketju.id)">Lähetä</button>
+                <button class="btn btn-default" ng-click="replyformVisible=!replyformVisible">Peruuta</button>
             </form>
         </div>
     </div>

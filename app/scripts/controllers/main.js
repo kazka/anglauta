@@ -27,7 +27,8 @@ app.controller('MainCtrl', function ($scope, $http) {
         $scope.createMsg();
     };
 
-    $scope.createMsg = function() {
+    $scope.createMsg = function($ketjuid) {
+        $scope.msg.ketju_id = $ketjuid;
         $http.post('http://anglauta.herokuapp.com/messages.json', $scope.msg).success( function(data, status, headers, config) {
             $scope.messages.push(data)
         });
