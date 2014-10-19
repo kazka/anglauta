@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-var app = angular.module('anglautaApp');
+var app = angular.module('anglautaApp', []);
 
 app.config(function($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
