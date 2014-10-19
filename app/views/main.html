@@ -1,4 +1,4 @@
-<div ng-hide="formVisible"><button class="btn btn-default" ng-click="formVisible=!formVisible">Luo uusi</button></div>
+<div ng-hide="formVisible"><button class="btn btn-default uusi" ng-click="formVisible=!formVisible">Luo uusi</button></div>
 
 <form class="lomake uusiviesti" role="form" ng-show="formVisible" ng-submit="createKetju(ketju)">
     <br/>
@@ -9,24 +9,25 @@
         <input class="form-control" type="text" ng-model="ketju.subject" placeholder="aihe"></input>
     </div>
     <div class="form-group">
-        <input class="form-control" type="file" ng-model="msg.img" placeholder="kuva" accept="image/x-png, image/gif, image/jpeg, image/jpg"></input>
+        <!--<input class="form-control" type="file" ng-model="msg.img" placeholder="kuva" accept="image/x-png, image/gif, image/jpeg, image/jpg"></input>-->
+        <input class="form-control" type="text" ng-model="msg.img" placeholder="kuvan url"></input>
     </div>
     <div class="form-group">
         <textarea class="form-control" rows="3" ng-model="msg.body" placeholder="viesti"></textarea>
     </div>
     <button class="btn btn-primary">Lähetä</button>
-    <button class="btn btn-default" ng-click="formVisible=!formVisible">Peruuta</button>
+    <div class="btn btn-default" ng-click="formVisible=!formVisible">Peruuta</div>
 </form>
 
 
-<!-- for each viesti -->
+
 <div ng-repeat="ketju in ketjus | orderBy:'updated_at':true" class="ketjurivi">
 
     <div class="row">
         <h3 class="aihe">{{ketju.subject}}</h3>
         <div class="col-md-12 viestirivi" ng-repeat="msg in ketju.messages">
             <div class="col-md-3">
-                <img ng-src="{{msg.img}}" style="width:100%" />
+                <a href="{{msg.img}}"><img ng-src="{{msg.img}}" style="width:100%" /></a>
             </div>
             <div class="col-md-9">
                 <p class="pvm">{{msg.created_at | date:'dd.MM.yyyy HH:mm'}}</p>
@@ -47,16 +48,22 @@
                     <input class="form-control" type="text" ng-model="msg.user" placeholder="nimi"></input>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="file" ng-model="msg.img" placeholder="kuva" accept="image/x-png, image/gif, image/jpeg, image/jpg"></input>
+                    <!--<input class="form-control" type="file" ng-model="msg.img" placeholder="kuva" accept="image/x-png, image/gif, image/jpeg, image/jpg"></input>-->
+                    <input class="form-control" type="text" ng-model="msg.img" placeholder="kuvan url"></input>
                 </div>
                 <div class="form-group">
                     <textarea class="form-control" rows="3" ng-model="msg.body" placeholder="viesti"></textarea>
                 </div>
 
                 <button class="btn btn-primary">Lähetä</button>
-                <button class="btn btn-default" ng-click="replyformVisible=!replyformVisible">Peruuta</button>
+                <div class="btn btn-default" ng-click="replyformVisible=!replyformVisible">Peruuta</div>
             </form>
+
         </div>
     </div>
 
 </div>
+
+
+
+<div class="modal fade hide" id="myModal" data-remote="/remote/url">...</div>
