@@ -119,3 +119,11 @@ body {
 button.uusi {
     margin-bottom:10px;
 }
+.btn-primary {
+    background-color:#c7254e;
+    border: 1px solid #000;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color:#000;
+    border: 1px solid #000;
+}
